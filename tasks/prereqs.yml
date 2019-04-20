@@ -2,11 +2,11 @@
 # tasks file for radarr :: prereqs
 - debug:
     msg:
-    - "###########################"
-    - "##                       ##"
-    - "##   radarr -- prereqs   ##"
-    - "##                       ##"
-    - "###########################"
+      - "###########################"
+      - "##                       ##"
+      - "##   radarr -- prereqs   ##"
+      - "##                       ##"
+      - "###########################"
 - name: Install initial packages
   yum:
     name: epel-release
@@ -19,6 +19,7 @@
   yum_repository:
     name: mono-centos7-stable
     file: mono-centos7-stable
+    description: Repo for Mono
     baseurl: https://download.mono-project.com/repo/centos7-stable/
     enabled: yes
     gpgcheck: yes
@@ -31,6 +32,7 @@
       - mono-core
       - mono-devel
       - mono-locale-extras
+      - unzip
     state: present
 - name: Add radarr group
   group:

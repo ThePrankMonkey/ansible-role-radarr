@@ -2,4 +2,4 @@
 - name: Converge
   hosts: all
   roles:
-    - role: radarr
+    - {name: radarr, become: yes}
