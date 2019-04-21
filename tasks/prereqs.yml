@@ -32,7 +32,6 @@
       - mono-core
       - mono-devel
       - mono-locale-extras
-      - unzip
     state: present
 - name: Add radarr group
   group:
