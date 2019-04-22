@@ -13,8 +13,7 @@ Role Variables
 --------------
 
 ```bash
-- radarr_version: 0.2.0.1293 # Version you want to install
-- radarr_url: https://github.com/Radarr/Radarr/releases/download/v{{ radarr_version }}/Radarr.develop.{{ radarr_version }}.linux.tar.gz
+radarr_release_url: https://api.github.com/repos/Radarr/Radarr/releases.linux.tar.gz # API link for releases
 ```
 
 Example Playbook
