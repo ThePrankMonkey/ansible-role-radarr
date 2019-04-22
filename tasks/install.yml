@@ -7,9 +7,17 @@
       - "##   radarr -- install   ##"
       - "##                       ##"
       - "###########################"
+- name: Get Current Download URL
+  shell: |
+    set -o pipefail
+    curl -s {{ radarr_release_url }} | grep linux.tar.gz | grep browser_download_url | head -1 | cut -d \" -f 4
+  args:
+    warn: false
+  register: radarr_url_current
+  changed_when: false
 - name: Download Radarr
   get_url:
-    url: "{{ radarr_url }}"
+    url: "{{ radarr_url_current.stdout }}"
     dest: /tmp/radarr.tar.gz
   notify: empty_/opt/Radarr
 - meta: flush_handlers
